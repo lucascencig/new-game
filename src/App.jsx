@@ -101,26 +101,32 @@ function App() {
 
   return (
     <div className="App">
-      <div className="board">
-        {board.map((value, index) => (
-          <Square
-            key={index} value={value} index={index} />
-        ))}
-      </div>
 
+      <section>
+        <h2>Instrucciones:</h2>
+        <p>Hay 7 columnas y 4 filas</p>
+        <p>Cada cuadrado de columnas debajo tiene numeros de colores relacionados a los colores dentro del tablero, SE DEBE UBICAR CADA COLOR EN SU LUGAR (FILA O COLUMNA) SEGUN LA CANTIDAD QUE MARCA EL NUMERO.</p>
+        <p>Ej: si una columna tiene un numero "3" con color <u>rojo</u>, esa columna debe tener 3 colores rojos en el tablero.</p>
+        <p>Lo mismo para las filas. Si hay un numero "2" con color <u>amarillo</u>, en esa fila solo pueden haber 2 colores amarillos</p>
+        <p>Los números debajo en "columnas" y "filas" brillaran si las columnas y filas coinciden con la cantidad correcta de colores.</p>
+        <h3>Movimientos:</h3>
+        <p>Al presionar un boton, puedes cambiarlo de posición presionando otro color para ubicarlos de diferentes maneras.</p>
+
+      </section>
+
+      <section>
+        <div className="board">
+          {board.map((value, index) => (
+            <Square
+              key={index} value={value} index={index} />
+          ))}
+        </div>
+      </section>
       <section className='restart'>
         <div>
-          {
-            win ?
-              null :
-              <button onClick={handleRestart}>↺</button>
-          }
+          <button onClick={handleRestart}>↺</button>
         </div>
-        {
-          win ?
-            <button onClick={handleRestart}>¡GANASTE!, Queres volver a intentarlo?</button> :
-            null
-        }
+
       </section>
 
       <h2>Columnas:</h2>
